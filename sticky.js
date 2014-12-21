@@ -7,9 +7,9 @@
 	{
 	
 	// Using it without an object
-	$.sticky = function(note, options, callback) { return $.fn.sticky(note, options, callback); };
+	$.sticky = function(note, type, options, callback) { return $.fn.sticky(note, type, options, callback); };
 	
-	$.fn.sticky = function(note, options, callback) 
+	$.fn.sticky = function(note, type, options, callback)
 		{
 		// Default settings
 		var position = 'top-right'; // top-left, top-right, bottom-left, or bottom-right
@@ -56,7 +56,7 @@
 		if(display)
 			{
 			// Building and inserting sticky note
-			$('.sticky-queue').prepend('<div class="sticky border-' + position + '" id="' + uniqID + '"></div>');
+			$('.sticky-queue').prepend('<div class="sticky border-' + position + ' st-' + type + '" id="' + uniqID + '"></div>');
 			$('#' + uniqID).append('<img src="close.png" class="sticky-close" rel="' + uniqID + '" title="Close" />');
 			$('#' + uniqID).append('<div class="sticky-note" rel="' + uniqID + '">' + note + '</div>');
 			
